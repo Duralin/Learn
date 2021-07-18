@@ -10,7 +10,7 @@ public class main {
         Point p4 = new Point(26,51);
 
         System.out.printf("Расстояние между точками равно %s \n",distance(p1,p2) );
-        System.out.printf("Расстояние между точками равно %s \n",distance(p1,p4) );
+        System.out.printf("Расстояние между точками равною %s \n",distance(p1,p4) );
         System.out.printf("Расстояние между точками равно %s \n",distance(p3,p2));
 
         p1.distanceMethod(p1,p2);
