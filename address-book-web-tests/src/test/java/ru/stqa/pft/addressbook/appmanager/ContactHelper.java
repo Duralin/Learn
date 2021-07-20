@@ -2,8 +2,7 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
-import ru.stqa.pft.addressbook.tests.ContactData;
+import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase {
       private WebDriver wd;
@@ -30,6 +29,9 @@ public class ContactHelper extends HelperBase {
       type(By.name("homepage"), contactData.getHomephone());
     }
 
+    public void iniContactCreation(){
+      click(By.linkText("add new"));
+    }
     public void deleteContact() {
       click(By.xpath("//input[@value='Delete']"));
     }
@@ -47,5 +49,15 @@ public class ContactHelper extends HelperBase {
     }
     public void updateContact() {
       click(By.xpath("//div[@id='content']/form/input[22]"));
+  }
+
+    public void createAContact(ContactData contactData) {
+      iniContactCreation();
+      fillContactField(contactData);
+      returnToContactInfo();
+    }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.name("selected[]"));
   }
 }
