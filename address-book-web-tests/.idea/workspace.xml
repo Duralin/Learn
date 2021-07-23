@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48f80eb4-fc87-4602-9a66-725874e49c3e" name="Default Changelist" comment="" />
+    <list default="true" id="48f80eb4-fc87-4602-9a66-725874e49c3e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,7 +66,6 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -190,7 +191,7 @@
       <workItem from="1626508943624" duration="265000" />
       <workItem from="1626509382760" duration="366000" />
       <workItem from="1627021550249" duration="19218000" />
-      <workItem from="1627041038787" duration="74000" />
+      <workItem from="1627041038787" duration="403000" />
     </task>
     <servers />
   </component>
