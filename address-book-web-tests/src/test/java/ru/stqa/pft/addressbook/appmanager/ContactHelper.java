@@ -2,7 +2,12 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.GroupData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
       private WebDriver wd;
@@ -36,11 +41,7 @@ public class ContactHelper extends HelperBase {
       click(By.xpath("//input[@value='Delete']"));
     }
 
-    public void selectContact() {
-      click(By.name("selected[]"));
-    }
-
-    public void alertAcceptMethod() {
+  public void alertAcceptMethod() {
       alertAcceptMeth();
     }
 
@@ -57,7 +58,19 @@ public class ContactHelper extends HelperBase {
       returnToContactInfo();
     }
 
-  public boolean isThereAContact() {
-    return isElementPresent(By.name("selected[]"));
+  public List<ContactData> getContactList() {
+    List<ContactData> contacts = new ArrayList<ContactData>();
+    WebElement elements = wd.findElement(By.id("maintable"));
+    List<WebElement> rows = elements.findElements(By.tagName("tr"));
+    for (WebElement row : rows) {
+      List<WebElement> cols = row.findElements(By.tagName("td"));
+      for (WebElement col : cols) {
+        String firstname = String.valueOf(cols.get(2));
+        String surname = String.valueOf(cols.get(3));
+        ContactData contact = new ContactData(firstname, surname, null, null, null, null, null, null, null, null, null, null, null, null);
+        contacts.add(contact);
+      }
+    }
+    return contacts;
   }
 }

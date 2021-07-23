@@ -49,4 +49,12 @@ public class HelperBase {
     public int elementsCount(){
         return wd.findElements(By.name("selected[]")).size();
     }
+
+    public void selectElement(int index) {
+        wd.findElements(By.name("selected[]")).get(index).click();
+    }
+
+    public boolean isThereAnElement() {
+        return isElementPresent(By.name("selected[]"));
+    }
 }
