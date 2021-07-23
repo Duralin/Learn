@@ -1,8 +1,8 @@
 
 ThirdQuest/.idea/workspace.xml
-address-dook-web-tests/build
-address-dook-web-tests/.gradle
-address-dook-web-tests/.idea
+/build
+/.gradle
+/.idea
 address-book-web-tests/.gradle/6.1/executionHistory/executionHistory.bin
 address-book-web-tests/build/test-results/test/TEST-ru.stqa.pft.addressbook.tests.ContactCreationTest.xml
 address-book-web-tests/build/test-results/test/binary/results.bin
