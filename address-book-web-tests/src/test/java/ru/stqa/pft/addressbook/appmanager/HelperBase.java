@@ -46,4 +46,7 @@ public class HelperBase {
             return false;
         }
     }
+    public int elementsCount(){
+        return wd.findElements(By.name("selected[]")).size();
+    }
 }
