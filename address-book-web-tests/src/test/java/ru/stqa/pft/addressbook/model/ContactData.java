@@ -1,5 +1,7 @@
 package ru.stqa.pft.addressbook.model;
 
+import java.util.Objects;
+
 public class ContactData {
     private final String firstname;
     private final String middlename;
@@ -87,5 +89,45 @@ public class ContactData {
 
     public String getBirthyear() {
         return birthyear;
+    }
+
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "firstname='" + firstname + '\'' +
+                ", middlename='" + middlename + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", company='" + company + '\'' +
+                ", homephone='" + homephone + '\'' +
+                ", mobilephone='" + mobilephone + '\'' +
+                ", workphone='" + workphone + '\'' +
+                ", email='" + email + '\'' +
+                ", title='" + title + '\'' +
+                ", website='" + website + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return Objects.equals(firstname, that.firstname) &&
+                Objects.equals(middlename, that.middlename) &&
+                Objects.equals(lastname, that.lastname) &&
+                Objects.equals(nickname, that.nickname) &&
+                Objects.equals(company, that.company) &&
+                Objects.equals(homephone, that.homephone) &&
+                Objects.equals(mobilephone, that.mobilephone) &&
+                Objects.equals(workphone, that.workphone) &&
+                Objects.equals(email, that.email) &&
+                Objects.equals(title, that.title) &&
+                Objects.equals(website, that.website);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstname, middlename, lastname, nickname, company, homephone, mobilephone, workphone, email, title, website);
     }
 }
