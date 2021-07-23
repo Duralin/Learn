@@ -60,8 +60,8 @@ public class ContactHelper extends HelperBase {
 
   public List<ContactData> getContactList() {
     List<ContactData> contacts = new ArrayList<ContactData>();
-    WebElement elements = wd.findElement(By.id("maintable"));
-    List<WebElement> rows = elements.findElements(By.tagName("tr"));
+    WebElement element = wd.findElement(By.id("maintable"));
+    List<WebElement> rows = element.findElements(By.tagName("tr"));
     for (WebElement row : rows) {
       List<WebElement> cols = row.findElements(By.tagName("td"));
       for (WebElement col : cols) {
