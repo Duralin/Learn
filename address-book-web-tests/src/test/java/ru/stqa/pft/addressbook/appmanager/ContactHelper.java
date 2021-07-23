@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
-      private WebDriver wd;
-
   public ContactHelper(WebDriver wd) {
     super(wd);
   }
@@ -59,13 +57,23 @@ public class ContactHelper extends HelperBase {
     }
 
   public List<ContactData> getContactList() {
+    String firstname = null;
+    String secondname = null;
     List<ContactData> contacts = new ArrayList<ContactData>();
-    WebElement firstnameCell = wd.findElement(By.xpath("//table[@id='maintable']/tbody/tr[4]/td[2]"));
-    WebElement secondnameCell = wd.findElement(By.xpath("//table[@id='maintable']/tbody/tr[4]/td[3]"));
-    String name = firstnameCell.getText();
-    String secondName = secondnameCell.getText();
-    ContactData contact = new ContactData(name, secondName, null, null, null, null, null, null, null, null, null, null, null, null);
-    contacts.add(contact);
+    WebElement table = wd.findElement(By.id("maintable"));
+    List<WebElement> rows = table.findElements(By.tagName("tr"));
+    for (WebElement row : rows) {
+      List<WebElement> cols1 = row.findElements(By.cssSelector("td:nth-child(2)"));
+      for (WebElement col : cols1) {
+        firstname = String.valueOf(col);
+      }
+      List<WebElement> cols2 = row.findElements(By.cssSelector("td:nth-child(3)"));
+      for (WebElement col : cols2) {
+        secondname = String.valueOf(col);
+      }
+      ContactData contact = new ContactData(firstname, secondname, null, null, null, null, null, null, null, null, null, null, null, null);
+      contacts.add(contact);
+    }
     return contacts;
   }
 }
