@@ -13,11 +13,11 @@ public class ContactDeleteTest extends TestBase {
   @Test
   public void testContactDeleteClass() throws Exception {
     if (! app.getContactHelper().isThereAnElement()){
-      app.getContactHelper().createAContact(new ContactData("Ivan", "Ivanov", "Maksimovich", "imaks", "spacegroup", "152135", "152136", "152437", "katalonec@mail.ru", "have no foto", "railway.com", "27", "September", "1999"));
+      app.getContactHelper().createAContact(new ContactData("Ivan", "Ivanov", "Maksimovich"));
     }
     app.getNavigationHelper().gotoHomepage();
     List<ContactData> before = app.getContactHelper().getContactList();
-    app.getContactHelper().selectElement(before.size() - 2);
+    app.getContactHelper().selectElement(before.size() - 1);
     app.getContactHelper().deleteContact();
     app.getContactHelper().alertAcceptMethod();
     app.getNavigationHelper().gotoHomepage();
