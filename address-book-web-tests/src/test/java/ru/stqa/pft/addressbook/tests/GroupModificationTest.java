@@ -3,9 +3,11 @@ package ru.stqa.pft.addressbook.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.TestBase;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
@@ -29,6 +31,9 @@ public class GroupModificationTest extends TestBase {
 
         before.remove(before.size() - 1);
         before.add(group);
-        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+        Comparator<? super GroupData> byId = Comparator.comparingInt(GroupData::getId);
+        before.sort(byId);
+        after.sort(byId);
+        Assert.assertEquals(before, after);
     }
 }

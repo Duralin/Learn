@@ -62,7 +62,7 @@ public class ContactHelper extends HelperBase {
         WebElement col3 = cols3.get(j);
         String lastname = col.getText();
         String firstname = col2.getText();
-        String id = col3.getAttribute("value");
+        int id = Integer.parseInt(col3.getAttribute("value"));
         ContactData contact = new ContactData(id, firstname, null,  lastname);
         contacts.add(contact);
       }
