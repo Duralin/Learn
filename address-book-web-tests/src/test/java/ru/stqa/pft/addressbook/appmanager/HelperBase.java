@@ -54,7 +54,7 @@ public class HelperBase {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
-    public boolean isThereAnElement() {
+    public boolean isEmpty() {
         return isElementPresent(By.name("selected[]"));
     }
 }
