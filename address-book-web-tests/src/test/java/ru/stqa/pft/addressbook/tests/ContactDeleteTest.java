@@ -13,7 +13,7 @@ public class ContactDeleteTest extends TestBase {
   @Test
   public void testContactDeleteClass() throws Exception {
     if (! app.getContactHelper().isThereAnElement()){
-      app.getContactHelper().createAContact(new ContactData("Ivan", "Ivanov", "Maksimovich"));
+      app.getContactHelper().createAContact(new ContactData("Ivan", null, "Maksimovich"));
     }
     app.getNavigationHelper().gotoHomepage();
     List<ContactData> before = app.getContactHelper().getContactList();

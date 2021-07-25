@@ -60,10 +60,10 @@ public class ContactHelper extends HelperBase {
         WebElement col = cols1.get(j);
         WebElement col2 = cols2.get(j);
         WebElement col3 = cols3.get(j);
-        String firstname = col.getText();
-        String secondname = col2.getText();
+        String lastname = col.getText();
+        String firstname = col2.getText();
         String id = col3.getAttribute("value");
-        ContactData contact = new ContactData(id, secondname, firstname, null);
+        ContactData contact = new ContactData(id, firstname, null,  lastname);
         contacts.add(contact);
       }
     }
