@@ -9,22 +9,27 @@ import java.util.List;
 
 public class ContactDeleteTest extends TestBase {
 
-
-  @Test
-  public void testContactDeleteClass() throws Exception {
+  @BeforeMethod
+  public void ensurePreconditions(){
     if (! app.getContactHelper().isThereAnElement()){
       app.getContactHelper().createAContact(new ContactData("Ivan", null, "Maksimovich"));
     }
+  }
+
+  @Test
+  public void testContactDeleteClass() throws Exception {
+
     app.getNavigationHelper().gotoHomepage();
     List<ContactData> before = app.getContactHelper().getContactList();
-    app.getContactHelper().selectElement(before.size() - 1);
-    app.getContactHelper().deleteContact();
-    app.getContactHelper().alertAcceptMethod();
+    int index = before.size() - 1;
+    app.getContactHelper().contactDeletion(index);
     app.getNavigationHelper().gotoHomepage();
     List<ContactData> after = app.getContactHelper().getContactList();
-    Assert.assertEquals(after.size(), before.size() - 1);
+    Assert.assertEquals(after.size(), index);
 
-    before.remove(before.size() - 1);
+    before.remove(index);
     Assert.assertEquals(before, after);
   }
+
+
 }

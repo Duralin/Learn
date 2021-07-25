@@ -47,6 +47,16 @@ public class ContactHelper extends HelperBase {
       returnToContactInfo();
     }
 
+    public void contactModification(ContactData contact) {
+      fillContactField(contact);
+      updateContact();
+    }
+    public void contactDeletion(int index) {
+      selectElement(index);
+      deleteContact();
+      alertAcceptMethod();
+    }
+
   public List<ContactData> getContactList() {
     List<ContactData> contacts = new ArrayList<ContactData>();
     WebElement table = wd.findElement(By.id("maintable"));

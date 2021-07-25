@@ -51,7 +51,18 @@ public class GroupHelper extends HelperBase{
         submitGroupCreation();
         returnToGroupPage();
     }
-
+    public void modifyGroup(int index, GroupData group) {
+        selectElement(index);
+        initGroupModification();
+        fillGroupForm(group);
+        submitGroupModification();
+        returnToGroupPage();
+    }
+    public void groupDeletion(int index) {
+        selectElement(index);
+        deleteSelectedGroups();
+        returnToGroupPage();
+    }
     public List<GroupData> getGroupList() {
         List<GroupData> groups = new ArrayList<GroupData>();
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
