@@ -34,7 +34,7 @@ public class ContactHelper extends HelperBase {
       alertAcceptMeth();
     }
 
-    public void modificateContact() {
+    public void modifButtonClick() {
       click(By.xpath("//img[@alt='Edit']"));
     }
     public void updateContact() {
@@ -47,7 +47,7 @@ public class ContactHelper extends HelperBase {
       returnToContactInfo();
     }
 
-    public void contactModification(ContactData contact) {
+    public void modification(ContactData contact) {
       fillContactField(contact);
       updateContact();
     }

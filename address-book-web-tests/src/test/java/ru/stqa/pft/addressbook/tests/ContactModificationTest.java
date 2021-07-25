@@ -21,11 +21,12 @@ public class ContactModificationTest extends TestBase {
 
     @Test
     public void testContactModification(){
+        app.goTo().homepage();
         List<ContactData> before = app.contact().getContactList();
-        app.contact().modificateContact();
+        app.contact().modifButtonClick();
         int index = before.size() - 1;
         ContactData contact = new ContactData(before.get(index).getId(),"Ivan", null, "Maksimovich");
-        app.contact().contactModification(contact);
+        app.contact().modification(contact);
         app.goTo().homepage();
         List<ContactData> after = app.contact().getContactList();
         Assert.assertEquals(after.size(), before.size());
