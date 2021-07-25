@@ -6,7 +6,9 @@ import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase {
   public ContactHelper(WebDriver wd) {
@@ -51,14 +53,15 @@ public class ContactHelper extends HelperBase {
       fillContactField(contact);
       updateContact();
     }
-    public void deletion(int index) {
-      selectElement(index);
+
+    public void deletion(ContactData contact) {
+      selectContactById(contact.getId());
       deleteContact();
       alertAcceptMethod();
     }
 
-  public List<ContactData> getContactList() {
-    List<ContactData> contacts = new ArrayList<ContactData>();
+  public Set<ContactData> contactSet() {
+    Set<ContactData> contacts = new HashSet<ContactData>();
     WebElement table = wd.findElement(By.id("maintable"));
     List<WebElement> rows = table.findElements(By.tagName("tr"));
     for (int i = 0; i<rows.size(); i++) {

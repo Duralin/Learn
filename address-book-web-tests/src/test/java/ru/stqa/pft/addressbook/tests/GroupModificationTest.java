@@ -9,31 +9,29 @@ import ru.stqa.pft.addressbook.model.TestBase;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 public class GroupModificationTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions(){
         app.goTo().groupPage();
-        if (! app.group().isEmpty()){
+        if (app.group().all().size() == 0){
             app.group().create(new GroupData("test1", null, null));
         }
     }
 
     @Test
     public void TestGroupModification(){
-        List<GroupData> before = app.group().list();
-        int index = before.size() - 1;
-        GroupData group = new GroupData(before.get(index).getId(),"test1", null, null);
-        app.group().modify(index, group);
-
-        List<GroupData> after = app.group().list();
+        Set<GroupData> before = app.group().all();
+        GroupData modifiedGroup = before.iterator().next();
+        GroupData group = new GroupData(modifiedGroup.getId(),"test1", null, null);
+        app.group().modify(group);
+        Set<GroupData> after = app.group().all();
         Assert.assertEquals(after.size(), before.size());
-        before.remove(index);
+
+        before.remove(modifiedGroup);
         before.add(group);
-        Comparator<? super GroupData> byId = Comparator.comparingInt(GroupData::getId);
-        before.sort(byId);
-        after.sort(byId);
         Assert.assertEquals(before, after);
     }
 

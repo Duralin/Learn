@@ -53,6 +53,12 @@ public class HelperBase {
     public void selectElement(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
+    public void selectGroupById(int id) {
+        wd.findElement(By.cssSelector("input[value='" + id +"']")).click();
+    }
+    public void selectContactById(int id) {
+        wd.findElement(By.cssSelector("input[value='" + id +"']")).click();
+    }
 
     public boolean isEmpty() {
         return isElementPresent(By.name("selected[]"));
