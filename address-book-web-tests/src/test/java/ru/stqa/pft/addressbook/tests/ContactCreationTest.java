@@ -13,7 +13,7 @@ public class ContactCreationTest extends TestBase {
   @Test
   public void testContactCreation() throws Exception {
     Set<ContactData> before = app.contact().contactSet();
-    ContactData contact = new ContactData("Ivan", null, "Maksimovich");
+    ContactData contact = new ContactData().withFirstname("Ivan").withLastname("Maksimovich");
     app.contact().create(contact);
     app.goTo().homepage();
     Set<ContactData> after = app.contact().contactSet();

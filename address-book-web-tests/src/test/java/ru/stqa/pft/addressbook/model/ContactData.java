@@ -9,21 +9,6 @@ public class ContactData {
     private String lastname;
 
 
-    public ContactData(String firstname, String middlename, String lastname) {
-        this.id = 0;
-        this.firstname = firstname;
-        this.middlename = middlename;
-        this.lastname = lastname;
-
-    }
-
-    public ContactData(int id, String firstname, String middlename, String lastname) {
-        this.id = id;
-        this.firstname = firstname;
-        this.middlename = middlename;
-        this.lastname = lastname;
-
-    }
     public ContactData withId(int id){
         this.id = id;
         return this;
@@ -41,10 +26,6 @@ public class ContactData {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getFirstname() {
         return firstname;
     }
@@ -56,6 +37,12 @@ public class ContactData {
     public String getLastname() {
         return lastname;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
 
     @Override
     public String toString() {
