@@ -4,11 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ContactHelper extends HelperBase {
   public ContactHelper(WebDriver wd) {
@@ -60,8 +58,8 @@ public class ContactHelper extends HelperBase {
       alertAcceptMethod();
     }
 
-  public Set<ContactData> contactSet() {
-    Set<ContactData> contacts = new HashSet<ContactData>();
+  public Contacts all() {
+    Contacts contacts = new Contacts();
     WebElement table = wd.findElement(By.id("maintable"));
     List<WebElement> rows = table.findElements(By.tagName("tr"));
     for (int i = 0; i<rows.size(); i++) {
