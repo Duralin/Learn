@@ -27,7 +27,10 @@ public class GroupData {
         this.id = id;
         return this;
     }
-
+    public GroupData withFooter(String footer){
+        this.footer = footer;
+        return this;
+    }
     public String getName() {
         return name;
     }
