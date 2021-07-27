@@ -9,9 +9,14 @@ public class ContactData {
     private String homePhone;
     private String mobilePhone;
     private String workPhone;
+    private String allPhones;
     private String email;
     private String address;
 
+    public ContactData withAllPhone(String allPhone){
+        this.allPhones = allPhone;
+        return this;
+    }
     public ContactData withHomePhone(String homePhone){
         this.homePhone = homePhone;
         return this;
@@ -75,6 +80,10 @@ public class ContactData {
 
     public String getAddress() {
         return address;
+    }
+
+    public String getAllPhones() {
+        return allPhones;
     }
 
     public void setId(int id) {
