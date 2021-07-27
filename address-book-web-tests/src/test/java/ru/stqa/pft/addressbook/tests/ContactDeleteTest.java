@@ -20,7 +20,7 @@ public class ContactDeleteTest extends TestBase {
   public void ensurePreconditions(){
     app.goTo().homepage();
     if (app.contact().all().size() == 0){
-      app.contact().create(new ContactData().withFirstname("Ivan").withLastname("Maksimovich"));
+      app.contact().create(new ContactData().withFirstname("Ivan").withLastname("Maksimovich").withHomePhone("123").wihtMobilePhone("123").withWorkPhone("123"));
     }
   }
 
