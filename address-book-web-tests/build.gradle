@@ -18,4 +18,5 @@ dependencies {
     testImplementation group: 'org.hamcrest', name: 'hamcrest-library', version: '2.2'
     implementation 'com.beust:jcommander:1.81'
     implementation 'com.thoughtworks.xstream:xstream:1.4.17'
+    implementation 'com.google.code.gson:gson:2.8.7'
 }
