@@ -16,4 +16,6 @@ dependencies {
     implementation 'org.testng:testng:7.4.0'
     compile 'org.seleniumhq.selenium:selenium-java:4.0.0-beta-4'
     testImplementation group: 'org.hamcrest', name: 'hamcrest-library', version: '2.2'
+    implementation 'com.beust:jcommander:1.81'
+    implementation 'com.thoughtworks.xstream:xstream:1.4.17'
 }
