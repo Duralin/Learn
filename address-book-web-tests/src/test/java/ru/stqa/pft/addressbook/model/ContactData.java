@@ -3,34 +3,58 @@ package ru.stqa.pft.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
 @XStreamAlias("Contact")
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
     @XStreamOmitField
+    @Id
     private int id;
     @Expose
     private String firstname;
     @Expose
     private String lastname;
     @Expose
+    private String middlename;
+    @Expose
+    @Column(name = "home")
+    @Type(type = "text")
     private String homePhone;
     @Expose
+    @Column(name = "mobile")
+    @Type(type = "text")
     private String mobilePhone;
     @Expose
+    @Column(name = "work")
+    @Type(type = "text")
     private String workPhone;
     @Expose
+    @Transient
     private String allPhones;
     @Expose
+    @Type(type = "text")
     private String email;
     @Expose
+    @Type(type = "text")
     private String address;
     @Expose
-    private File photo;
+    @Type(type = "text")
+    private String photo;
+    @Expose
+    @Transient
+    private String group;
 
 
+    public ContactData withGroup(String group){
+        this.group = group;
+        return this;
+    }
     public ContactData withAllPhone(String allPhone){
         this.allPhones = allPhone;
         return this;
@@ -63,13 +87,17 @@ public class ContactData {
         this.firstname = firstname;
         return this;
     }
+    public ContactData withMiddlename(String middlename){
+        this.middlename = middlename;
+        return this;
+    }
     public ContactData withLastname(String lastname){
         this.lastname= lastname;
         return this;
     }
 
     public ContactData withPhoto(File photo) {
-        this.photo = photo;
+        this.photo = photo.getPath();
         return this;
     }
 
@@ -79,6 +107,10 @@ public class ContactData {
 
     public String getFirstname() {
         return firstname;
+    }
+
+    public String getMiddlename() {
+        return middlename;
     }
 
     public String getLastname() {
@@ -110,14 +142,16 @@ public class ContactData {
     }
 
     public File getPhoto() {
-        return photo;
+        return new File(photo);
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-
+    public String getGroup() {
+        return group;
+    }
 
     @Override
     public String toString() {

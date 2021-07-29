@@ -20,6 +20,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GroupCreateTests extends TestBase {
 
+
   @DataProvider
   public Iterator<Object[]> validGroupsFromJson() throws IOException {
     try(BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/testData/groups.json")))) {
