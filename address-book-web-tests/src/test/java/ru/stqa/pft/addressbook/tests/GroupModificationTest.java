@@ -24,8 +24,8 @@ public class GroupModificationTest extends TestBase {
         if (app.db().groups().size() == 0) {
             app.goTo().groupPage();
             app.group().create(new GroupData().withName("test1"));
-            }
         }
+    }
 
     @Test
     public void TestGroupModification(){

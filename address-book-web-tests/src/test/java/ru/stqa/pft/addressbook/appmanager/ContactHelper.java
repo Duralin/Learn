@@ -24,6 +24,10 @@ public class ContactHelper extends HelperBase {
       type(By.name("mobile"), contactData.getMobilePhone());
       type(By.name("work"), contactData.getWorkPhone());
       //attach(By.name("photo"), contactData.getPhoto());
+      type(By.name("email"), contactData.getEmail());
+      type(By.name("address"), contactData.getAddress());
+      type(By.name("middlename"), contactData.getMiddlename());
+
   }
 
     public void iniContactCreation(){

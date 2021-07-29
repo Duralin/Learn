@@ -18,20 +18,26 @@ public class ContactModificationTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions(){
-        app.goTo().homepage();
-        if (app.contact().all().size() == 0){
-            app.contact().create(new ContactData().withFirstname("Ivan").withLastname("Maksimovich").withHomePhone("123").wihtMobilePhone("123").withWorkPhone("123"));
+        if (app.db().contacts().size() == 0){
+            app.goTo().homepage();
+            app.contact().create(new ContactData().withFirstname("Ivan").withLastname("Maksimovich")
+                    .withHomePhone("123").wihtMobilePhone("123")
+                    .withWorkPhone("123").withMiddlename("chel")
+                    .withEmail("@mail").withAddress("address"));
         }
     }
 
     @Test
     public void testContactModification(){
         app.goTo().homepage();
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         ContactData modyfiedContact = before.iterator().next();
-        ContactData contact = new ContactData().withId(modyfiedContact.getId()).withFirstname("Ivan").withLastname("Maksimovich").withHomePhone("123").wihtMobilePhone("123").withWorkPhone("123");
+        ContactData contact = new ContactData().withId(modyfiedContact.getId()).withFirstname("Ivan").withLastname("Maksimovich")
+                .withHomePhone("123").wihtMobilePhone("123")
+                .withWorkPhone("123").withMiddlename("chel")
+                .withEmail("@mail").withAddress("address");
         app.contact().modification(contact);
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
         assertThat(app.group().elementsCount(), equalTo(before.size()));
 
         assertThat(after, equalTo(before.without(modyfiedContact).withAdded(contact)));
