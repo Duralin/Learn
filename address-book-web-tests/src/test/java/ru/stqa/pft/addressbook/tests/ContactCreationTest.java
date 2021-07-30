@@ -18,6 +18,13 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 
 public class ContactCreationTest extends TestBase {
+  @BeforeMethod
+  public void ensurePreconditions(){
+    if (app.db().groups().size() == 0){
+      app.goTo().groupPage();
+      app.group().create(new GroupData().withName("test1"));
+    }
+  }
   @DataProvider
   public Iterator<Object[]> validContactsFromJson() throws IOException {
     try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/testData/contact.json")))) {
@@ -51,10 +58,11 @@ public class ContactCreationTest extends TestBase {
   }
 
   @Test(dataProvider = "validContactsFromJson")
-  public void testContactCreation(ContactData contact) throws Exception {
+  public void testContactCreation(ContactData contact){
+    Groups group = app.db().groups();
     app.goTo().homepage();
     Contacts before = app.db().contacts();
-    app.contact().create(contact);
+    app.contact().create(contact.inGroup(group.iterator().next()));
     Contacts after = app.db().contacts();
     assertThat(after.size(), equalTo(before.size() + 1));
 

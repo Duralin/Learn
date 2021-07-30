@@ -5,9 +5,8 @@ import org.hamcrest.MatcherAssert;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.Contacts;
-import ru.stqa.pft.addressbook.model.TestBase;
+import ru.stqa.pft.addressbook.model.*;
+
 import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -18,12 +17,17 @@ public class ContactModificationTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions(){
+        if (app.db().groups().size() == 0){
+            app.goTo().groupPage();
+            app.group().create(new GroupData().withName("test1"));
+        }
         if (app.db().contacts().size() == 0){
+            Groups groups = app.db().groups();
             app.goTo().homepage();
             app.contact().create(new ContactData().withFirstname("Ivan").withLastname("Maksimovich")
                     .withHomePhone("123").wihtMobilePhone("123")
                     .withWorkPhone("123").withMiddlename("chel")
-                    .withEmail("@mail").withAddress("address"));
+                    .withEmail("@mail").withAddress("address").inGroup(groups.iterator().next()));
         }
     }
 
@@ -37,9 +41,8 @@ public class ContactModificationTest extends TestBase {
                 .withWorkPhone("123").withMiddlename("chel")
                 .withEmail("@mail").withAddress("address");
         app.contact().modification(contact);
-        Contacts after = app.db().contacts();
-        assertThat(app.group().elementsCount(), equalTo(before.size()));
-
-        assertThat(after, equalTo(before.without(modyfiedContact).withAdded(contact)));
+        Groups groups = app.db().groups();
+        app.contact().addTo((groups.withAdded(groups.iterator().next()).iterator().next()), modyfiedContact.getId());
+        assertThat(app.contact().elementsCount(), equalTo(before.size()));
     }
 }
