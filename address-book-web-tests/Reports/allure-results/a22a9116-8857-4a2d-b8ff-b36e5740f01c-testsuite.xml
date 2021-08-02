@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1627920063840" stop="1627920069778">
+    <name>Gradle suite</name>
+    <test-cases>
+        <test-case start="1627920064143" stop="1627920065242" status="passed">
+            <name>testContactCreation[ContactData{id=0, firstname='Name 0', lastname='Lastname 0', middlename='Middlename 0', homePhone='10', mobilePhone='2 0', workPhone='3 0', email='email 0', address='Address 0', groups=[]}]</name>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1627920065303" stop="1627920065724" status="passed">
+            <name>testContactDeleteFromGroup</name>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1627920065858" stop="1627920066161" status="passed">
+            <name>testContactDeleteClass</name>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1627920066171" stop="1627920066433" status="passed">
+            <name>testContactAdding</name>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1627920066777" stop="1627920067030" status="passed">
+            <name>testContactInfo</name>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1627920067043" stop="1627920068303" status="passed">
+            <name>testContactModification</name>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1627920068304" stop="1627920068311" status="passed">
+            <name>testDbConnection</name>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1627920068314" stop="1627920068869" status="passed">
+            <name>testGroupCreation[GroupData{id='2147483647', name='test 0'}]</name>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1627920069002" stop="1627920069206" status="passed">
+            <name>testGroupDeleteClass</name>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1627920069217" stop="1627920069679" status="passed">
+            <name>TestGroupModification</name>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1627920069770" stop="1627920069776" status="passed">
+            <name>hbConnectionTest</name>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+    </test-cases>
+    <labels/>
+</ns2:test-suite>
