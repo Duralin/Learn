@@ -25,7 +25,7 @@ dependencies {
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.26'
     implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.5.4.Final'
     agent "org.aspectj:aspectjweaver:1.8.0"
-    testCompile "ru.yandex.qatools.allure:allure-testng-adaptor:1.4.0.RC4"
+    implementation "ru.yandex.qatools.allure:allure-testng-adaptor:1.4.0.RC4"
 }
 
 task testGroups(type: Test) {
